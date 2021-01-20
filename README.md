@@ -36,7 +36,7 @@ let gameTree = parser.gameTrees[0]
 let node = gameTree.rootNode
 ```
 
-`SGFGameTree` has a property `sgfString`, which can be saved as a `.sgf` file.[1]
+`SGFGameTree` has a property `sgfString`, which can be saved as a `.sgf` file.
 
 ## Uopdate History
 
