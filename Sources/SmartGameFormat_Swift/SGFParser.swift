@@ -21,7 +21,7 @@ public class SGFParser {
     var data: String
     var dataLen: Int
     var index: Int
-    var gameTrees: [SGFGameTree]
+    public var gameTrees: [SGFGameTree]
     
     public init(_ data: String) {
         self.data = data
