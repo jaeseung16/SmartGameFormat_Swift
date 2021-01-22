@@ -1,5 +1,5 @@
 # SmartGameFormat_Swift
-![](https://img.shields.io/badge/version-0.1.3-blue)
+![](https://img.shields.io/badge/version-0.1.4-blue)
 ![](https://img.shields.io/badge/license-MIT-green)
 ![](https://img.shields.io/badge/last%20updated-October%202020-orange)
 
