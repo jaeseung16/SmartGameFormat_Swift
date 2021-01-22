@@ -40,6 +40,9 @@ public class SGFGameTree: CustomStringConvertible {
         return "(\(rootNode.sgfString)\(sgfString(from: rootNode.children)))"
     }
     
+    public init() {
+    }
+    
     public func sgfString(from children: [SGFNode]) -> String {
         var text = ""
         if children.count == 1 {

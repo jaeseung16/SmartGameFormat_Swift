@@ -18,6 +18,9 @@ public struct SGFGameInfo {
     
     public var infos: [SGFToken: String] = [:]
     
+    public init() {
+    }
+    
     // Provides the name and version number of the application used to create this gametree.
     public var comment: String {
         return infos[.C] ?? SGFGameInfo.emptyString
