@@ -1,7 +1,7 @@
 # SmartGameFormat_Swift
 ![](https://img.shields.io/badge/version-0.1.4-blue)
 ![](https://img.shields.io/badge/license-MIT-green)
-![](https://img.shields.io/badge/last%20updated-October%202020-orange)
+![](https://img.shields.io/badge/last%20updated-January%202021-orange)
 
 Copyright (c) 2021 Jae-Seung Lee
 
@@ -40,4 +40,4 @@ let node = gameTree.rootNode
 
 ## Uopdate History
 
-### Version 0.1.0 (1/20/2021)
+### Version 0.1.4 (1/22/2021)
