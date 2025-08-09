@@ -5,7 +5,7 @@
 //  Created by Jae Seung Lee on 8/5/25.
 //
 
-public struct SGFPoint: Hashable {
+public struct SGFPoint: Hashable, Sendable {
     public let row: Int
     public let col: Int
     
