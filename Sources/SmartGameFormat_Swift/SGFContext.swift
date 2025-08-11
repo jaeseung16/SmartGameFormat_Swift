@@ -71,8 +71,9 @@ public class SGFContext {
     public func serialize(point: (Int, Int)) -> String {
         let (row, col) = point
         
-        if row < 0 || col < 0 || row >= size || col >= size {
+        guard row >= 0 && col >= 0 && row < size && col < size else {
             SGFContext.logger.error("\(point) is not valid point")
+            return ""
         }
         
         return String(SGFContext.columnNames[col]) + String(SGFContext.rowNames[size - row - 1])
