@@ -65,10 +65,15 @@ public class SGFContext {
     private static let rowNames: [Character] = Array("abcdefghijklmnopqrstuvwxy")
     
     public func serialize(point: SGFPoint) -> String {
-        return serialize(point: (point.row, point.col))
+        do {
+            return try serialize(point: (point.row, point.col))
+        } catch {
+            SGFContext.logger.error("point=\(point): \(error)")
+        }
+        return ""
     }
     
-    public func serialize(point: (Int, Int)) -> String {
+    public func serialize(point: (Int, Int)) throws -> String {
         let (row, col) = point
         return String(SGFContext.columnNames[col]) + String(SGFContext.rowNames[size - row - 1])
     }
