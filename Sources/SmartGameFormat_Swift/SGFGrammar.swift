@@ -106,7 +106,10 @@ public class SGFGrammar {
                 } else {
                     if sequence != nil {
                         if let sequence = sequence, sequence.isEmpty {
-                            fatalError("Empty sequence")
+                            gameTree?.sequence = [properties!]
+                            variation = gameTree
+                            SGFGrammar.logger.warning("sequence is empty: \(String(describing: variation))")
+                            break
                         }
                         gameTree?.sequence = sequence!
                         sequence = nil
