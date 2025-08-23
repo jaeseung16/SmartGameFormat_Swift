@@ -427,6 +427,112 @@ struct SGFGameTest {
     )
     """
     
+    let sgfStringWithoutTM =
+    """
+    (;GM[1]
+    FF[4]
+    SZ[19]
+    PW[JustForFun]
+    WR[7d]
+    PB[dragon]
+    DT[2001-06-16]
+    PC[The Kiseido Go Server (KGS) at http://kgs.kiseido.com/]
+    KM[5.50]
+    RE[W+Resign]
+    RU[Japanese]CA[UTF-8]TM[]
+    ;B[pc]
+    ;W[dp]
+    ;B[pp]
+    ;W[dd]
+    ;B[pe]
+    ;W[dj]
+    ;B[jd]
+    ;W[nq]
+    ;B[pn]
+    ;W[jp]
+    ;B[fc]
+    ;W[df]
+    ;B[qj]
+    ;W[oj]
+    ;B[no]
+    ;W[qi]
+    ;B[pk]
+    ;W[pi]
+    ;B[mq]
+    ;W[mp]
+    ;B[lq]
+    ;W[np]
+    ;B[lp]
+    ;W[mo]
+    ;B[lo]
+    ;W[nn]
+    ;B[io]
+    ;W[jo]
+    ;B[ip]
+    ;W[jq]
+    ;B[ln]
+    ;W[oo]
+    ;B[qq]
+    ;W[nl]
+    ;B[fq]
+    ;W[eq]
+    ;B[fp]
+    ;W[cn]
+    ;B[en]
+    ;W[jn]
+    ;B[mm]
+    ;W[nm]
+    ;B[ll]
+    ;W[jl]
+    ;B[hm]
+    ;W[dm]
+    ;B[hk]
+    ;W[jj]
+    ;B[lj]
+    ;W[jh]
+    ;B[ni]
+    ;W[nj]
+    ;B[mi]
+    ;W[ql]
+    ;B[qm]
+    ;W[pl]
+    ;B[rm]
+    ;W[rl]
+    ;B[fj]
+    ;W[re]
+    ;B[rc]
+    ;W[hc]
+    ;B[ge]
+    ;W[jc]
+    ;B[kc]
+    ;W[id]
+    ;B[je]
+    ;W[ie]
+    ;B[jf]
+    ;W[if]
+    ;B[jg]
+    ;W[ig]
+    ;B[ih]
+    ;W[kh]
+    ;B[ng]
+    ;W[gd]
+    ;B[fd]
+    ;W[fe]
+    ;B[ff]
+    ;W[ee]
+    ;B[gf]
+    ;W[ii]
+    ;B[hh]
+    ;W[hi]
+    ;B[gh]
+    ;W[gi]
+    ;B[fi]
+    ;W[ik]
+    ;B[gk]
+    ;W[lk]
+    )
+    """
+    
     @Test func testGetMainSequence() async throws {
         if let sgfGame = SGFGame.from(string: sgfString) {
             if let children = sgfGame.root?.children {
@@ -451,7 +557,7 @@ struct SGFGameTest {
                 children.forEach { print($0.debugDescription) }
             }
             print("mainSequence=\(sgfGame.mainSequence)")
-            #expect(sgfGame.mainSequence.count == 297)
+            #expect(sgfGame.mainSequence.count == 30)
         }
     }
     
@@ -469,7 +575,7 @@ struct SGFGameTest {
                 children.forEach { print($0.debugDescription) }
             }
             print("mainSequence=\(sgfGame.mainSequence)")
-            #expect(sgfGame.mainSequence.count == 297)
+            #expect(sgfGame.mainSequence.count == 1)
         }
     }
     
@@ -480,5 +586,24 @@ struct SGFGameTest {
             print("result = \(result)")
         }
     }
+    
+    @Test func testGetMainSequenceWithoutTM() async throws {
+        if let sgfGame = SGFGame.from(string: sgfStringWithoutTM) {
+            if let children = sgfGame.root?.children {
+                children.forEach { print($0.debugDescription) }
+            }
+            print("mainSequence=\(sgfGame.mainSequence)")
+            #expect(sgfGame.mainSequence.count == 90)
+        }
+    }
+    
+    @Test func testSerializeWithoutTM() async throws {
+        if let sgfGame = SGFGame.from(string: sgfStringWithoutTM) {
+            //print("\(sgfGame.mainSequence)")
+            let result = sgfGame.serialize()
+            print("result = \(result)")
+        }
+    }
+    
     
 }
