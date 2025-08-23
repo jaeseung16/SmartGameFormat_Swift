@@ -47,6 +47,12 @@ public class SGFNode {
                 continue
             }
             
+            if identifer == .TM && !values.isEmpty && values[0] == "" {
+                SGFNode.logger.warning("Missing TM value: \(values)")
+                properties[identifer] = SGFPropertyFactory.create(identifier: identifer, values: ["-1"], context: context)
+                continue
+            }
+            
             properties[identifer] = SGFPropertyFactory.create(identifier: identifer, values: values, context: context)
         }
     }

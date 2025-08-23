@@ -89,7 +89,11 @@ public class CoarseGameTree {
                 for property in sortedProperties {
                     var propertyString = ["\(property.key)"]
                     for value in property.value {
-                        propertyString.append("[\(value)]")
+                        if property.key == "TM" && value == "-1" {
+                            propertyString.append("[]")
+                        } else {
+                            propertyString.append("[\(value)]")
+                        }
                     }
                     lines.append(propertyString.joined())
                 }
